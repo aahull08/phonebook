@@ -36,6 +36,7 @@ app.use(express.json())
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :body", {
   skip: function(req, ___) {return req.method !== "POST"}
 }))
+app.use(express.static('build'))
 
 app.get('/api/persons', (request, response) => {
   response.send(persons)
